@@ -11,7 +11,6 @@
 
 int main(int argc,char *argv[], int target) {
     int i, n, myrank, nproc, done = 0;
-    double PI25DT = 3.141592653589793238462643;
     double total, realTotal, h, sum, x;
         int tasks = 0;
         int startAt = 0;
@@ -49,7 +48,7 @@ int main(int argc,char *argv[], int target) {
     MPI_Init(&argc,&argv);
     MPI_Comm_size(MPI_COMM_WORLD,&nproc);
     MPI_Comm_rank(MPI_COMM_WORLD,&myrank);
-    n = 0;
+    n = 1000;
     while (!done)
     {
         MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
