@@ -63,14 +63,14 @@ int main(int argc,char *argv[], int target) {
           else
           {
             //get how many tasks each processors does
-            tasks = n / nproc;
+            tasks = n / (nproc-1);
             //calculate where to start and stop at
             startAt = (myrank * tasks) + 1;
             stopAt = (myrank + 1) * tasks;
 
             h = 1.0 / (double) n;
             sum = 0.0;
-                        printf("This processor is doing %d jobs and starts at %d and ends at %d\n", tasks, startAt, stopAt );
+                        printf("This processor %d is doing %d jobs and starts at %d and ends at %d\n",myrank, tasks, startAt, stopAt );
                         for (i = startAt; i <= stopAt; i++)
                         {
                                 //printf("I am processor %d doing my job %d\n", myrank, i);
