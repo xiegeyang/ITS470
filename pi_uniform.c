@@ -11,7 +11,7 @@
 
 int main(int argc,char *argv[]) {
   int target = 1;
-  sscanf(argv[0], "%d", &target);
+  sscanf(argv[1], "%d", &target);
 
 
     int i, n, myrank, nproc, done = 0;
