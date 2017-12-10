@@ -81,6 +81,8 @@ int main(int argc,char *argv[], int target) {
                         }
             total += sum;
             MPI_Reduce(&total, &realTotal, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+            if (myrank == 0)
+                printf("sum is %d", realTotal);
           }
         }
     }
