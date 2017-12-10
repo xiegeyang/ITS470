@@ -15,7 +15,8 @@ int main(int argc,char *argv[]) {
 
 
     int i, n, myrank, nproc, done = 0;
-    double total, realTotal, h, sum, x;
+    double h, x;
+    int sum, total, realTotal;
         int tasks = 0;
         int startAt = 0;
         int stopAt = 0;
@@ -72,7 +73,7 @@ int main(int argc,char *argv[]) {
             stopAt = myrank * tasks;
 
             h = 1.0 / (double) n;
-            sum = 0.0;
+            sum = 0;
                         //printf("This processor %d is doing %d jobs and starts at %d and ends at %d\n",myrank, tasks, startAt, stopAt );
                         for (i = startAt; i <= stopAt; i++)
                         {
@@ -82,12 +83,13 @@ int main(int argc,char *argv[]) {
                                 }
                         }
 
-            printf("My id is %d and the frequency of %d is %f\n", myrank, target, sum);
+            printf("My id is %d and the frequency of %d is %d\n", myrank, target, sum);
             total = sum;
           }
           MPI_Reduce(&total, &realTotal, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
           if(myrank == 0)
-            printf("sum is %f\n", realTotal);
+            printf("-------------------------------\n");
+            printf("The total frequency of %d is %d\n",target, realTotal);
         }
 
     MPI_Finalize();
