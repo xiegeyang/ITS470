@@ -1,9 +1,9 @@
 #include "mpi.h"
 #include <stdio.h>
 #include <math.h>
-#include "stdafx.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #define _CRT_SECURE_NO_DEPRECATE
 #pragma warning (disable : 4996)
 #define nums_LIST_MAX      1000
@@ -23,7 +23,7 @@ int main(int argc,char *argv[], int target) {
  */
       int nums[nums_LIST_MAX];
     	int count = 0;
-    	int i = 0;
+    	int j = 0;
 
     	FILE *file;
     	file = fopen(nums_FILE, "r");
@@ -40,7 +40,7 @@ int main(int argc,char *argv[], int target) {
     		fscanf(file, "%d", &(nums[count++]));
     	}
     	fclose(file);
-
+        printf("11");
 
 
 /*
@@ -58,7 +58,8 @@ int main(int argc,char *argv[], int target) {
         else
         {
           if (myrank == 0)
-              printf("\npi is approximately %.16f, Error is %.16f\n\n", realTotal, fabs(pi - PI25DT));
+	  {
+	  }
           else
           {
             //get how many tasks each processors does
