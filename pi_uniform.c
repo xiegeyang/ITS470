@@ -53,8 +53,6 @@ int main(int argc,char *argv[]) {
     MPI_Comm_size(MPI_COMM_WORLD,&nproc);
     MPI_Comm_rank(MPI_COMM_WORLD,&myrank);
     n = 1000;
-
-
         MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
         if (n == 0)
             done = 1;
@@ -84,9 +82,8 @@ int main(int argc,char *argv[]) {
                         }
 
             printf("My id is %d and the frequency of %d is %d\n", myrank, target, sum);
-            total = sum;
           }
-          MPI_Reduce(&total, &realTotal, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+          MPI_Reduce(&sum, &realTotal, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
           if(myrank == 0){
               printf("-------------------------------\n");
               printf("The total frequency of %d is %d\n",target, realTotal);
