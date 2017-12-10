@@ -87,9 +87,10 @@ int main(int argc,char *argv[]) {
             total = sum;
           }
           MPI_Reduce(&total, &realTotal, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
-          if(myrank == 0)
-            printf("-------------------------------\n");
-            printf("The total frequency of %d is %d\n",target, realTotal);
+          if(myrank == 0){
+              printf("-------------------------------\n");
+              printf("The total frequency of %d is %d\n",target, realTotal);
+          }
         }
 
     MPI_Finalize();
