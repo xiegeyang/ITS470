@@ -10,7 +10,7 @@
 #define nums_FILE          "input1.dat"
 
 int main(int argc,char *argv[]) {
-  int target = 1;
+  int target = 11;
 
 
 
