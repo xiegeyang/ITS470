@@ -39,7 +39,6 @@ int main(int argc,char *argv[], int target) {
     		fscanf(file, "%d", &(nums[count++]));
     	}
     	fclose(file);
-        printf("11");
 
 
 /*
@@ -73,7 +72,7 @@ int main(int argc,char *argv[], int target) {
                         {
                                 //printf("I am processor %d doing my job %d\n", myrank, i);
                                 // if the number equals to the target number, sum increase by 1.
-                                if(nums[i] == 11)
+                                if(nums[i] == target)
                                 {
                                   sum++;
                                 }
