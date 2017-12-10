@@ -11,9 +11,8 @@
 
 int main(int argc,char *argv[]) {
   int target = 1;
-  printf("Enter the number of find:\n");
-  scanf("%d",&target);
-  printf("Number to find is %d", target);
+
+
 
     int i, n, myrank, nproc, done = 0;
     double total, realTotal, h, sum, x;
@@ -61,6 +60,9 @@ int main(int argc,char *argv[]) {
         {
           if (myrank == 0)
 	        {
+            printf("Enter the number of find:\n");
+            scanf("%d",&target);
+            printf("Number to find is %d", target);
 	        }
           else
           {
