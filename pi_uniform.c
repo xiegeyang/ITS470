@@ -10,7 +10,7 @@
 #define nums_FILE          "input1.dat"
 
 int main(int argc,char *argv[]) {
-  int target = 1;
+  int target = 11;
 
 
 
@@ -60,9 +60,7 @@ int main(int argc,char *argv[]) {
         {
           if (myrank == 0)
 	        {
-            printf("Enter the number of find:\n");
-            scanf("%d",&target);
-            printf("Number to find is %d", target);
+            printf("sum is %f", realTotal);
 	        }
           else
           {
@@ -90,8 +88,7 @@ int main(int argc,char *argv[]) {
 
           }
           MPI_Reduce(&total, &realTotal, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
-          if(myrank == 0)
-            printf("sum is %f", realTotal);
+
         }
 
     MPI_Finalize();
