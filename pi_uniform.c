@@ -65,8 +65,8 @@ int main(int argc,char *argv[], int target) {
             //get how many tasks each processors does
             tasks = n / (nproc-1);
             //calculate where to start and stop at
-            startAt = (myrank * tasks) + 1;
-            stopAt = (myrank + 1) * tasks;
+            startAt = ((myrank-1) * tasks) + 1;
+            stopAt = myrank * tasks;
 
             h = 1.0 / (double) n;
             sum = 0.0;
