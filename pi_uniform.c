@@ -81,13 +81,14 @@ int main(int argc,char *argv[], int target) {
                                   sum++;
                                 }
                         }
-                        
+
             printf("\n%f\n",sum);
             total += sum;
-            MPI_Reduce(&total, &realTotal, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 
-                printf("sum is %f", realTotal);
           }
+          MPI_Reduce(&total, &realTotal, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+
+          printf("sum is %f", realTotal);
         }
     }
     MPI_Finalize();
