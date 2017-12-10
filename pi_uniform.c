@@ -12,6 +12,9 @@
 int main(int argc,char *argv[]) {
   int target = 1;
   sscanf(argv[1], "%d", &target);
+  if(myrank == 0){
+    printf("number to find is %d", target);
+  }
 
 
     int i, n, myrank, nproc, done = 0;
@@ -58,10 +61,7 @@ int main(int argc,char *argv[]) {
             done = 1;
         else
         {
-          if(myrank == 0){
-            printf("number to find is %d", target);
-          }
-          else if( myrank != 0)
+           if( myrank != 0)
           {
             //get how many tasks each processors does
             tasks = n / (nproc-1);
