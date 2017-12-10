@@ -53,15 +53,17 @@ int main(int argc,char *argv[]) {
     MPI_Comm_rank(MPI_COMM_WORLD,&myrank);
     n = 1000;
 
-    if(myrank == 0){
-      printf("number to find is %d", target);
-    }
+
         MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
         if (n == 0)
             done = 1;
         else
         {
-           if( myrank != 0)
+          if(myrank == 0)
+          {
+            printf("number to find is %d", target);
+          }
+          else
           {
             //get how many tasks each processors does
             tasks = n / (nproc-1);
