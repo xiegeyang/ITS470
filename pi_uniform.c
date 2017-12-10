@@ -9,7 +9,12 @@
 #define nums_LIST_MAX      1000
 #define nums_FILE          "input1.dat"
 
-int main(int argc,char *argv[], int target) {
+int main(int argc,char *argv[]) {
+  int target = 1;
+  printf("Enter the number of find:\n");
+  scanf("%d",&target);
+  printf("Number to find is %d", target);
+
     int i, n, myrank, nproc, done = 0;
     double total, realTotal, h, sum, x;
         int tasks = 0;
