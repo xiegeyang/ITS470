@@ -58,8 +58,8 @@ int main(int argc,char *argv[], int target) {
         else
         {
           if (myrank == 0)
-	  {
-	  }
+	        {
+	        }
           else
           {
             //get how many tasks each processors does
@@ -73,7 +73,7 @@ int main(int argc,char *argv[], int target) {
                         printf("This processor is doing %d jobs and starts at %d and ends at %d\n", tasks, startAt, stopAt );
                         for (i = startAt; i <= stopAt; i++)
                         {
-                                printf("I am processor %d doing my job %d\n", myrank, i);
+                                //printf("I am processor %d doing my job %d\n", myrank, i);
                                 // if the number equals to the target number, sum increase by 1.
                                 if(nums[i] == target)
                                 {
