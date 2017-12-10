@@ -61,7 +61,7 @@ int main(int argc,char *argv[]) {
         {
           if(myrank == 0)
           {
-            printf("number to find is %d", target);
+            printf("number to find is %d\n", target);
           }
           else
           {
@@ -87,7 +87,7 @@ int main(int argc,char *argv[]) {
           }
           MPI_Reduce(&total, &realTotal, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
           if(myrank == 0)
-            printf("sum is %f", realTotal);
+            printf("sum is %f\n", realTotal);
         }
 
     MPI_Finalize();
