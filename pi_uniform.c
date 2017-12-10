@@ -58,6 +58,8 @@ int main(int argc,char *argv[], int target) {
         {
           if (myrank == 0)
 	        {
+            printf("stop?\n");
+            scanf("%d",&done);
 	        }
           else
           {
