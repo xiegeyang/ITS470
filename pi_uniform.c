@@ -10,7 +10,7 @@
 #define nums_FILE          "input1.dat"
 
 int main(int argc,char *argv[]) {
-  int target = 11;
+  int target = 1;
 
 
 
@@ -58,11 +58,7 @@ int main(int argc,char *argv[]) {
             done = 1;
         else
         {
-          if (myrank == 0)
-	        {
-            printf("sum is %f", realTotal);
-	        }
-          else
+          if( myrank != 0)
           {
             //get how many tasks each processors does
             tasks = n / (nproc-1);
@@ -75,8 +71,6 @@ int main(int argc,char *argv[]) {
                         printf("This processor %d is doing %d jobs and starts at %d and ends at %d\n",myrank, tasks, startAt, stopAt );
                         for (i = startAt; i <= stopAt; i++)
                         {
-                                //printf("I am processor %d doing my job %d\n", myrank, i);
-                                // if the number equals to the target number, sum increase by 1.
                                 if(nums[i] == target)
                                 {
                                   sum++;
@@ -84,11 +78,11 @@ int main(int argc,char *argv[]) {
                         }
 
             printf("\n%f\n",sum);
-            total += sum;
-
+            total = sum;
           }
           MPI_Reduce(&total, &realTotal, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
-
+          if(myrank == 0)
+            printf("sum is %f", realTotal);
         }
 
     MPI_Finalize();
