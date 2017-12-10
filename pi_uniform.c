@@ -54,10 +54,7 @@ int main(int argc,char *argv[]) {
     MPI_Comm_rank(MPI_COMM_WORLD,&myrank);
     n = 1000;
         MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        if (n == 0)
-            done = 1;
-        else
-        {
+
           if(myrank == 0)
           {
             printf("number to find is %d\n", target);
@@ -88,7 +85,7 @@ int main(int argc,char *argv[]) {
               printf("-------------------------------\n");
               printf("The total frequency of %d is %d\n",target, realTotal);
           }
-        }
+        
 
     MPI_Finalize();
     return 0;
