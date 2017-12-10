@@ -76,7 +76,7 @@ int main(int argc,char *argv[], int target) {
                         {
                                 //printf("I am processor %d doing my job %d\n", myrank, i);
                                 // if the number equals to the target number, sum increase by 1.
-                                printf("%d",i);
+                                printf("%d\n",i);
                                 if(nums[i] == target)
                                 {
                                   sum++;
