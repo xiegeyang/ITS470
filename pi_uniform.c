@@ -49,8 +49,7 @@ int main(int argc,char *argv[], int target) {
     MPI_Comm_size(MPI_COMM_WORLD,&nproc);
     MPI_Comm_rank(MPI_COMM_WORLD,&myrank);
     n = 1000;
-    while (!done)
-    {
+
         MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
         if (n == 0)
             done = 1;
@@ -58,8 +57,6 @@ int main(int argc,char *argv[], int target) {
         {
           if (myrank == 0)
 	        {
-            printf("?\n");
-            scanf("%d",&done);
 	        }
           else
           {
@@ -87,10 +84,9 @@ int main(int argc,char *argv[], int target) {
 
           }
           MPI_Reduce(&total, &realTotal, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
-
           printf("sum is %f", realTotal);
         }
-    }
+
     MPI_Finalize();
     return 0;
 }
