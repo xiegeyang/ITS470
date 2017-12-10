@@ -73,7 +73,7 @@ int main(int argc,char *argv[]) {
 
             h = 1.0 / (double) n;
             sum = 0.0;
-                        printf("This processor %d is doing %d jobs and starts at %d and ends at %d\n",myrank, tasks, startAt, stopAt );
+                        //printf("This processor %d is doing %d jobs and starts at %d and ends at %d\n",myrank, tasks, startAt, stopAt );
                         for (i = startAt; i <= stopAt; i++)
                         {
                                 if(nums[i] == target)
@@ -82,7 +82,7 @@ int main(int argc,char *argv[]) {
                                 }
                         }
 
-            printf("\n%f\n",sum);
+            printf("My id is %d and the frequency of %d is %f\n", myrank, target, sum);
             total = sum;
           }
           MPI_Reduce(&total, &realTotal, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
